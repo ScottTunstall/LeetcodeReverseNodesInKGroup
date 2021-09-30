@@ -2,18 +2,18 @@
 My solution to the leetcode https://leetcode.com/problems/reverse-nodes-in-k-group/ HARD problem
 
 
-First attempt:
+##First attempt:
 
 Runtime: 100 ms, faster than 61.31% of C# online submissions for Reverse Nodes in k-Group.
 Memory Usage: 27.4 MB, less than 10.26% of C# online submissions for Reverse Nodes in k-Group.
 
-Running **the same code** again with **absolutely zero changes** I got:
+##Running **the same code** again with **absolutely zero changes** I got:
 
 Runtime: 92 ms, faster than 92.54% of C# online submissions for Reverse Nodes in k-Group.
 Memory Usage: 27.2 MB, less than 22.14% of C# online submissions for Reverse Nodes in k-Group.
 
 
-Third attempt:
+##Third attempt:
 
 I refactored the code to be clean(er). I hope you now can follow what it does. I got a nice wee speed increase at the expense of memory use!
 
