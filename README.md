@@ -14,3 +14,7 @@ Memory Usage: 27.2 MB, less than 22.14% of C# online submissions for Reverse Nod
 
 
 I'm happy with the speed!
+
+This code is for teaching purposes only. You are NOT permitted to create derivatives of this code to pass Leetcode tests.
+
+Don't be a cheat!
