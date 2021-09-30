@@ -38,17 +38,9 @@ namespace LeetcodeReverseNodesInKGroup
 
         private bool TryReverseKNodes(ListNode head, int k, out ListNode newHead, out ListNode newTail)
         {
-            var listNodes = new Stack<ListNode>();
-            var current = head;
-            var i = 0;
+            var listNodes = CreateStackFromListNodes(head, k, out var listTail1);
 
-            while (current != null && i < k)
-            {
-                listNodes.Push(current);
-                current = current.next;
-                i++;
-            }
-
+            // 
             if (listNodes.Count !=k)
             {
                 newHead = head;
@@ -56,23 +48,53 @@ namespace LeetcodeReverseNodesInKGroup
                 return false;
             }
             
-            var nodeAfterOldTail  = current;
+            // Get the first node we *haven't* processed 
+            var unprocessedAsYet = listTail1.next;
 
-            var headOfReversedNodes = listNodes.Pop();
+            newHead = CreateListNodesFromStack(listNodes, out var listTail2);
+            newTail = listTail2;
 
-            current = headOfReversedNodes;
-            while (listNodes.TryPop(out ListNode listNode))
-            {
-                current.next = listNode;
-                current = listNode;
-            }
-
-            current.next = nodeAfterOldTail;
-
-            newHead = headOfReversedNodes;
-            newTail = current;
+            listTail2.next = unprocessedAsYet;
 
             return true;
         }
+
+
+        private Stack<ListNode> CreateStackFromListNodes(ListNode headOfListNodes, int k, out ListNode tailOfListNodes)
+        {
+            var listNodes = new Stack<ListNode>();
+            tailOfListNodes = headOfListNodes;
+            var i = 0;
+
+            var current = headOfListNodes;
+            while (current != null && i < k)
+            {
+                listNodes.Push(current);
+                tailOfListNodes = current;
+                current = current.next;
+                i++;
+            }
+
+            return listNodes;
+        }
+
+
+        private ListNode CreateListNodesFromStack(Stack<ListNode> listNodes, out ListNode tail)
+        {
+            var head = listNodes.Pop();
+
+            tail  = head;
+            
+            while (listNodes.TryPop(out ListNode listNode))
+            {
+                tail.next = listNode;
+                tail = listNode;
+            }
+
+            return head;
+        }
+
+
+
     }
 }
