@@ -19,7 +19,7 @@ I refactored the code to be clean(er). I hope you now can follow what it does. I
 
 There's always the trade-off....
 
-Runtime: 88 ms, faster than 96.27% of C# online submissions for Reverse Nodes in k-Group.
+Runtime: 88 ms, faster than **96.27%** of C# online submissions for Reverse Nodes in k-Group.
 
 Memory Usage: 27.7 MB, less than 5.59% of C# online submissions for Reverse Nodes in k-Group.
 
